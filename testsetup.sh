@@ -17,6 +17,11 @@ echo
 echo "Ping Matrix"
 ping -c4 matrix.senecacollege.ca
 echo
+
+# Adding symlinks
+echo "Adding symlinks"
+/root/.bin/ops245-pt2/setlinks.sh
+
 cat << EOT
 Please check that you can login to matrix.senecacollege.ca 
 with your Seneca ID via ssh.
