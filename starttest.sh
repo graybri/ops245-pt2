@@ -44,7 +44,11 @@ do
     read section
 done
 
-    
+# Change interface to maual
+ifdown enp1s0
+cp /root/backups/interfaces.start /etc/network/interfaces
+ifup enp1s0    
+
 echo | tee -a $testlog
 echo "Seneca ID: $senecaacct" | tee -a $testlog
 echo "Seneca Email: $stumail" | tee -a $testlog
@@ -52,6 +56,8 @@ echo "Section: $section" | tee -a $testlog
 echo | tee -a $testlog
 
 sleep 1
+
+# Save Vars
 echo "start=$(date +%c)" > /tmp/.testvars
 echo "stumail=$stumail" >> /tmp/.testvars
 echo "senecaacct=$senecaacct" >> /tmp/.testvars

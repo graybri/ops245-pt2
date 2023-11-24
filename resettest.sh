@@ -34,12 +34,19 @@ cp /root/backups/hosts /etc/
 cp /root/backups/fstab /etc/
 #cp /root/backups/group /etc/
 #cp /root/backups/passwd /etc/
-cp /root/backups/interfaces.start /etc/network/interfaces
 cp /root/backups/sshd_config /etc/ssh/
 cp /root/backups/ops245.bashrc ~ops245/.bashrc
 chown ops245:ops245 ~ops245/.bashrc
 
 echo "Files restored?"
+exit
+
+# Restart interface 
+ifdown enp1s0
+cp /root/backups/interfaces.static /etc/network/interfaces
+ifup enp1s0
+
+echo 'Interface Static?'
 exit
 
 # Remove vim
