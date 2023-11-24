@@ -14,6 +14,7 @@ testlog=/var/log/ops245.log
 stumail=""
 profmail="brian.gray@senecacollege.ca"
 numdate="$(date +%s)"
+section=""
 
 # Backup existing testlog
 if [ -f $testlog ]
@@ -36,15 +37,25 @@ do
 done
 senecaacct=$(echo $stumail | cut -d'@' -f1)
 
+# Get Section
+until echo $section | egrep -q "^(NAA|NBB)$"
+do
+    echo -n "Please enter your section (NAA or NBB): "
+    read section
+done
+
+    
 echo | tee -a $testlog
 echo "Seneca ID: $senecaacct" | tee -a $testlog
 echo "Seneca Email: $stumail" | tee -a $testlog
+echo "Section: $section" | tee -a $testlog
 echo | tee -a $testlog
 
 sleep 1
 echo "start=$(date +%c)" > /tmp/.testvars
 echo "stumail=$stumail" >> /tmp/.testvars
 echo "senecaacct=$senecaacct" >> /tmp/.testvars
+echo "section=$section" >> /tmp/.testvars
 
 echo "Please start your test"
 
