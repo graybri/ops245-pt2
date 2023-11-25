@@ -45,7 +45,7 @@ rm /etc/iptables*
 rm /etc/network/if-pre-up.d/*
 
 # Remove vim
-apt remove vim
+apt -y remove vim
 
 # End message
 echo "Test Reset"
