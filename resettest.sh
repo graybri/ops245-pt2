@@ -18,9 +18,9 @@ done
 umount /mariadb
 rmdir /mariadb
 lvremove -y -q vg_data
-vgremove vg_data
-pvremove /dev/vdb1
-echo -e "d\n1\n" | fdisk /dev/vdb
+vgremove -y -q vg_data
+pvremove -y -q /dev/vdb1
+echo -e "d\nw\n" | fdisk /dev/vdb
 
 echo "LVM Reset?"
 exit
