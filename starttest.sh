@@ -20,6 +20,7 @@ section=""
 if [ -f $testlog ]
 then
     mv $testlog /root/backups/test-${numdate}.log
+    rm $testlog
 fi
 
 # HEADERS
@@ -58,7 +59,7 @@ echo | tee -a $testlog
 sleep 1
 
 # Save Vars
-echo "start=$(date +%c)" > /tmp/.testvars
+echo "start=\"$(date +%c)\"" > /tmp/.testvars
 echo "stumail=$stumail" >> /tmp/.testvars
 echo "senecaacct=$senecaacct" >> /tmp/.testvars
 echo "section=$section" >> /tmp/.testvars
