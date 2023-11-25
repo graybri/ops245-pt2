@@ -17,7 +17,7 @@ done
 # Reset storage
 umount /mariadb
 rmdir /mariadb
-lvremove vg_data
+lvremove -y -q vg_data
 vgremove vg_data
 pvremove /dev/vdb1
 echo -e "d\n1\n" | fdisk /dev/vdb
