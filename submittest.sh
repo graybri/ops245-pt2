@@ -12,8 +12,13 @@ fi
 # Variables
 testlog=/var/log/ops245.log
 testvarfile=/var/log/.testvars
-source $testvarfile
+semester="f23"
+profacct="brian.gray"
 profmail="brian.gray@senecacollege.ca"
+numdate="$(date +%s)"
+source $testvarfile
+submitfile="${senecaacct}-${section}-${numdate}.log"
+matrixpath="/home/${profacct}/ops245/pt2/${semester}/${section}/"
 
 # Adding .testvars contents
 echo | tee -a $testlog
@@ -119,12 +124,22 @@ echo "IPTLOAD" | tee -a $testlog
 grep -H ".*" /etc/network/if-pre-up.d/* | tee -a $testlog
 echo "DAOLTPI" | tee -a $testlog
 
+# Save submit file
+cp $testlog ~/backups/$submitfile
 
-# Change interface to maual
-#ifdown enp1s0
-#cp /root/backups/interfaces.start /etc/network/interfaces
-#ifup enp1s0    
+### Copy submit file to matrix
 
-echo "Please start your test"
+# Change interface to static
+ifdown enp1s0
+cp /root/backups/interfaces.static /etc/network/interfaces
+ifup enp1s0
+
+# Reset iptables
+iptables -F
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+
+# scp to matrix
+scp ~/backups/$submitfile $senecaacct@matrix.senecacollege.ca:$matrixpath
 
 
