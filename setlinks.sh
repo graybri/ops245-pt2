@@ -9,6 +9,7 @@ then
 fi
 
 ln -s -f /root/.bin/ops245-pt2/resettest.sh /usr/local/bin/resettest
+ln -s -f /root/.bin/ops245-pt2/submittest.sh /usr/local/bin/submittest
 ln -s -f /root/.bin/ops245-pt2/starttest.sh /usr/local/bin/starttest
 ln -s -f /root/.bin/ops245-pt2/testsetup.sh /usr/local/bin/testsetup
 ln -s -f /root/.bin/ops245-pt2/neton.sh /usr/local/bin/neton
