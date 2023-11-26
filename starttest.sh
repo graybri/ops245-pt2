@@ -11,6 +11,7 @@ fi
 
 # Variables
 testlog=/var/log/ops245.log
+testvarfile=/var/log/.testvars
 stumail=""
 profmail="brian.gray@senecacollege.ca"
 numdate="$(date +%s)"
@@ -59,10 +60,10 @@ echo | tee -a $testlog
 sleep 1
 
 # Save Vars
-echo "start=\"$(date +%c)\"" > /tmp/.testvars
-echo "stumail=$stumail" >> /tmp/.testvars
-echo "senecaacct=$senecaacct" >> /tmp/.testvars
-echo "section=$section" >> /tmp/.testvars
+echo "start=\"$(date +%c)\"" > $testvarfile
+echo "stumail=$stumail" >> $testvarfile
+echo "senecaacct=$senecaacct" >> $testvarfile
+echo "section=$section" >> $testvarfile
 
 echo "Please start your test"
 
