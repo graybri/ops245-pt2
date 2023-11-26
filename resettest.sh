@@ -16,6 +16,7 @@ done
 
 # Reset storage
 umount /mariadb
+rm -rf /mariadb
 lvremove -y -q vg_data
 vgremove -y -q vg_data
 pvremove -y -q /dev/vdb1
@@ -27,6 +28,9 @@ cp /root/backups/fstab /etc/
 cp /root/backups/sshd_config /etc/ssh/
 cp /root/backups/ops245.bashrc ~ops245/.bashrc
 chown ops245:ops245 ~ops245/.bashrc
+
+# Restart ssh
+systemctl restart ssh
 
 # Restart interface 
 # This adds the static IPv4 config
