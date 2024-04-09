@@ -12,9 +12,9 @@ fi
 # Variables
 testlog=/var/log/ops245.log
 testvarfile=/var/log/.testvars
-semester="f23"
+semester="w24"
 profacct="brian.gray"
-profmail="brian.gray@senecacollege.ca"
+profmail="brian.gray@senecapolytechnic.ca"
 numdate="$(date +%s)"
 source $testvarfile
 submitfile="${senecaacct}-${section}-${numdate}.log"
@@ -140,6 +140,6 @@ iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
 
 # scp to matrix
-scp ~/backups/$submitfile $senecaacct@matrix.senecacollege.ca:$matrixpath
+scp ~/backups/$submitfile $senecaacct@matrix.senecapolytechnic.ca:$matrixpath
 
 

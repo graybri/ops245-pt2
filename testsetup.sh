@@ -14,16 +14,13 @@ fi
 echo "Virtual Disks"
 ls /dev/vd*
 echo
-echo "Ping Matrix"
-ping -c4 matrix.senecacollege.ca
-echo
 
 # Adding symlinks
 echo "Adding symlinks"
 /root/.bin/ops245-pt2/setlinks.sh
 
 cat << EOT
-Please check that you can login to matrix.senecacollege.ca 
+Please check that you can login to matrix.senecapolytechnic.ca 
 with your Seneca ID via ssh.
 
 If successful run the command 'sudo resettest'

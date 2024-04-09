@@ -13,7 +13,7 @@ fi
 testlog=/var/log/ops245.log
 testvarfile=/var/log/.testvars
 stumail=""
-profmail="brian.gray@senecacollege.ca"
+profmail="brian.gray@senecapolytechnic.ca"
 numdate="$(date +%s)"
 section=""
 
@@ -32,7 +32,7 @@ echo | tee -a $testlog
 date +%c | tee -a $testlog
 
 # Get email
-until echo $stumail | egrep -q "myseneca.ca$|senecacollege.ca$" 
+until echo $stumail | egrep -q "myseneca.ca$|senecapolytechnic.ca$" 
 do
     echo -n "Please enter your (complete) Seneca College Email Address: "
     read stumail
@@ -40,9 +40,9 @@ done
 senecaacct=$(echo $stumail | cut -d'@' -f1)
 
 # Get Section
-until echo $section | egrep -q "^(NAA|NBB)$"
+until echo $section | egrep -q "^(NCC|NDD)$"
 do
-    echo -n "Please enter your section (NAA or NBB): "
+    echo -n "Please enter your section (NCC or NDD): "
     read section
 done
 
