@@ -43,8 +43,7 @@ echo "DWSSAP" | tee -a $testlog
 # alias 
 echo | tee -a $testlog
 echo "ALIAS" | tee -a $testlog
-grep "alias" ~ops245/.bash* ~${suser}/.bash* | tee -a $testlog
-grep "alias" ~${suser}/.bash
+grep "alias" ~ops245/.bash* /home/${suser}/.bash* | tee -a $testlog
 echo "SAILA" | tee -a $testlog
 
 # vim 
