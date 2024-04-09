@@ -19,6 +19,7 @@ numdate="$(date +%s)"
 source $testvarfile
 submitfile="${senecaacct}-${section}-${numdate}.log"
 matrixpath="/home/${profacct}/ops245/pt2/${semester}/${section}/"
+suser=${SUDO_USER:-$USER}
 
 # Adding .testvars contents
 echo | tee -a $testlog
@@ -42,7 +43,7 @@ echo "DWSSAP" | tee -a $testlog
 # alias 
 echo | tee -a $testlog
 echo "ALIAS" | tee -a $testlog
-grep "alias" ~ops245/.bash* ~${senecaacct}/.bash* | tee -a $testlog
+grep "alias" ~ops245/.bash* ~${suser}/.bash* | tee -a $testlog
 echo "SAILA" | tee -a $testlog
 
 # vim 
