@@ -11,6 +11,7 @@ fi
 # Remove users
 for account in $(grep ":x:100[1-9]:" /etc/passwd | cut -d: -f1)
 do
+    crontab -r -u $account 
     userdel -r $account > /dev/null 2>&1
 done
 
