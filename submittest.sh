@@ -12,7 +12,7 @@ fi
 # Variables
 testlog=/var/log/ops245.log
 testvarfile=/var/log/.testvars
-semester="s24"
+semester="w25"
 profacct="brian.gray"
 profmail="brian.gray@senecapolytechnic.ca"
 numdate="$(date +%s)"
@@ -38,13 +38,13 @@ echo | tee -a $testlog
 echo "GROUP" | tee -a $testlog
 tail -5 /etc/group | tee -a $testlog
 grep "^sudo" /etc/group | tee -a $testlog
-echo "DWSSAP" | tee -a $testlog
+echo "PUORG" | tee -a $testlog
 
 # alias 
-echo | tee -a $testlog
-echo "ALIAS" | tee -a $testlog
-grep "alias" ~ops245/.bash* /home/${suser}/.bash* | tee -a $testlog
-echo "SAILA" | tee -a $testlog
+#echo | tee -a $testlog
+#echo "ALIAS" | tee -a $testlog
+#grep "alias" ~ops245/.bash* /home/${suser}/.bash* | tee -a $testlog
+#echo "SAILA" | tee -a $testlog
 
 # vim 
 echo | tee -a $testlog
@@ -73,7 +73,7 @@ echo "TNUOM" | tee -a $testlog
 # FSTAB 
 echo | tee -a $testlog
 echo "FSTAB" | tee -a $testlog
-grep "^/dev" /etc/fstab | tee -a $testlog
+grep -E "^/dev|mariadb" /etc/fstab | tee -a $testlog
 echo "BATSF" | tee -a $testlog
 
 # crontab 
