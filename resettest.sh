@@ -24,9 +24,9 @@ pvremove -y -q /dev/vdb1
 echo -e "d\nw\n" | fdisk /dev/vdb
 
 # Restore files
-cp /root/backups/hosts /etc/
-cp /root/backups/fstab /etc/
-cp /root/backups/sshd_config /etc/ssh/
+cp /root/backups/hosts.bak /etc/hosts
+cp /root/backups/fstab.bak /etc/fstab
+cp /root/backups/sshd_config.bak /etc/ssh/sshd_config
 cp /root/backups/ops245.bashrc ~ops245/.bashrc
 chown ops245:ops245 ~ops245/.bashrc
 
@@ -50,7 +50,7 @@ rm /etc/iptables*
 rm /etc/network/if-pre-up.d/*
 
 # Remove vim
-apt -y remove vim
+apt -y remove micro
 
 # End message
 echo "Test Reset"
