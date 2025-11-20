@@ -49,7 +49,7 @@ echo "PUORG" | tee -a $testlog
 # vim 
 echo | tee -a $testlog
 echo "VIM" | tee -a $testlog
-dpkg -l vim | tail -1 | tee -a $testlog
+dpkg -l micro | tail -1 | tee -a $testlog
 echo "MIV" | tee -a $testlog
 
 # DISK 
