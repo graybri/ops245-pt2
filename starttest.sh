@@ -48,7 +48,7 @@ done
 
 # Change interface to maual
 ifdown enp1s0
-cp /root/backups/interfaces.start /etc/network/interfaces
+cp /root/backups/interfaces.dhcp /etc/network/interfaces
 ifup enp1s0    
 
 echo | tee -a $testlog
