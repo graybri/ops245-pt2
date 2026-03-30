@@ -19,6 +19,11 @@ echo
 echo "Adding symlinks"
 /root/.bin/ops245-pt2/setlinks.sh
 
+# Adding network
+echo "Static Network"
+cp /root/backups/interfaces.static /etc/network/interfaces
+cp /root/backups/resolv.conf.static /etc/resolv.conf
+
 cat << EOT
 Please check that you can login to matrix.senecapolytechnic.ca 
 with your Seneca ID via ssh.
