@@ -12,7 +12,7 @@ fi
 # Variables
 testlog=/var/log/ops245.log
 testvarfile=/var/log/.testvars
-semester="f25"
+semester="w26"
 profacct="brian.gray"
 profmail="brian.gray@senecapolytechnic.ca"
 numdate="$(date +%s)"
