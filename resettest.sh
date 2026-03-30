@@ -38,6 +38,7 @@ systemctl restart ssh
 # When the starttest script runs it will return the interface to manual
 ifdown enp1s0
 cp /root/backups/interfaces.static /etc/network/interfaces
+cp /root/backups/resolv.conf.static /etc/resolv.conf
 ifup enp1s0
 
 # Remove crontab for ops245
